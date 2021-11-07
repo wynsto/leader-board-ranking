@@ -4,7 +4,7 @@ import wsReducer from '../features/websocket/websocketSlice'
 
 export const store = configureStore({
   reducer: {
-    ws: wsReducer,
-    rankList: rankListReducer
+    ws: wsReducer, // websocket status state store
+    rankList: rankListReducer // game players score ranking
   },
 });
