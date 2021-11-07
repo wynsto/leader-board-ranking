@@ -1,5 +1,6 @@
-This is a demo app for real-time leader board ranking.
+# This is a demo app for real-time leader board ranking.
 
+## How to start
 To start the development client/server, in the project directory, install the dependency by `npm install` then you can run `npm run dev`. This command will start web client and websocket server at the sametime. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
 The web site will connnet to the websocket server automaticly. If website connects to the websockets server successfully an success message "WebSocket Connected" will be display. Otherwise an error message "WebSocket Disconnected" with an connect button will be shown on the top. User can click connect button try to connect the websocket server manually.
