@@ -10,9 +10,9 @@ import { RankItem } from './RankItem';
 import { AddNewScore } from './AddNewScore';
 import { Grid, Paper } from '@mui/material';
 
+// player's score rank list
 export function RankList() {
     const { list } = useSelector(selectRankList);
-    console.log(list)
     return  <Grid container spacing={2}>
         <Grid item xs={6} md={8}>
             <Paper>

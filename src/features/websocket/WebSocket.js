@@ -9,6 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import Collapse from '@mui/material/Collapse';
 
+// webscocket connected status child component 
 const Connceted = (props) => {
     const [open, setOpen] = useState(true);
 
@@ -39,6 +40,8 @@ const Connceted = (props) => {
     </Alert>
 </Collapse>
 }
+
+// webscocket disconnected status child component 
 const Disconnceted = (props) => <>
     <Alert severity="error"
         action={
@@ -51,15 +54,16 @@ const Disconnceted = (props) => <>
     </Alert>    
 </>
 
+// WebSocket status component
 export function WebSocket() {
     const wsStatus = useSelector(selectWS);
     const ws = useContext(WebSocketContext);
 
     function disconnect() {
-        ws.disconnect()
+        ws.disconnect();
     }
     function connect() {
-        ws.connect()
+        ws.connect();
     }
 
     return <>{wsStatus.connected ? <Connceted disconnect={disconnect}/> : <Disconnceted connect={connect}/>}</>

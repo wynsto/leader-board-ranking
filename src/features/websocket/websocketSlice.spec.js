@@ -6,7 +6,7 @@ import websocketReducer, {
     const initialState = {
         connected: false,
         message: ''
-    }
+    };
     it('should handle initial state', () => {
         expect(websocketReducer(undefined, { type: 'unknown' })).toEqual({
             connected: false,

@@ -11,16 +11,16 @@ export const wsSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     connected: (state) => {
-      state.connected = true
+      state.connected = true;
     },
     disconnected: (state) => {
-      state.connected = false
+      state.connected = false;
     },
   }
 });
 
-export const selectWS = (state) => state.ws
+export const selectWS = (state) => state.ws;
 
 export const { connected, disconnected } = wsSlice.actions;
 
-export default wsSlice.reducer
+export default wsSlice.reducer;

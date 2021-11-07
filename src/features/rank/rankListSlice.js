@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// initial state of rank list store
 const initialState = {
-  list: [],
+  list: [], // player's score list [{score, username, id}]
   current: null,
-  mode: 'gamer'
+  mode: 'gamer' // mode: gamer/admin    gamer: read only, admin: can add & update player's core
 };
 
 export const rankListSlice = createSlice({
@@ -16,11 +17,11 @@ export const rankListSlice = createSlice({
     },
     // get players rank detail by id
     updateDetail: (state, action) => {
-      state.current = action.payload.rankInfo
+      state.current = action.payload.rankInfo;
     },
     // update mode, admin mode can update player score, otherwise it's read only mode
     updateMode: (state, action) => {
-      state.mode = action.payload.mode
+      state.mode = action.payload.mode;
     }
   }
 });

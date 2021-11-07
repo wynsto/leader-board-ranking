@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import {connected, disconnected} from './websocketSlice'
 import { updateList, updateDetail } from '../rank/rankListSlice'
 
-const WebSocketContext = createContext(null)
+const WebSocketContext = createContext(null);
 
 export { WebSocketContext }
 
@@ -15,29 +15,29 @@ const WebSocketProvider = ({ children }) => {
     const dispatch = useDispatch();
 
     const sendMessage = (message) => {
-        const payload = message
+        const payload = message;
         socket.send(JSON.stringify(payload));
     }
 
     const disconnect = () => {
         if (socket) {
             socket.close();
-            socket = null
-            dispatch(connected())
+            socket = null;
+            dispatch(connected());
         }
     }
 
     const connect = () => {
         if (socket) {
-            socket.close()
+            socket.close();
         }
         socket = new WebSocket(WS_BASE);
         socket.onopen = () => {
             sendMessage({
                 action: 'load',
                 payload: {}
-            })
-            dispatch(connected())
+            });
+            dispatch(connected());
         }
 
         socket.onmessage = (msg) => {
@@ -46,26 +46,28 @@ const WebSocketProvider = ({ children }) => {
             switch(action) {
                 case 'updateList':
                     dispatch(updateList(payload));
-                    break
+                    break;
                 case 'updateDetail':
                     dispatch(updateDetail(payload));
-                    break
+                    break;
                 case 'connected':
-                    dispatch(connected(payload))
-                    break
+                    dispatch(connected(payload));
+                    break;
                 case 'disconnected':
-                    dispatch(disconnected(payload))
+                    dispatch(disconnected(payload));
                     break
+                default:
+                    //
             }
         }
 
         socket.onclose = (msg) => {
-            console.log('close', msg)
-            dispatch(disconnected())
+            console.log('close', msg);
+            dispatch(disconnected());
         }
     }
 
-    connect()
+    connect();
 
     ws = {
         socket: socket,
@@ -79,7 +81,7 @@ const WebSocketProvider = ({ children }) => {
         <WebSocketContext.Provider value={ws}>
             {children}
         </WebSocketContext.Provider>
-    )
+    );
 }
 
 export default WebSocketProvider
