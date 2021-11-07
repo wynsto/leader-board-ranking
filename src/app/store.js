@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import rankListReducer from '../features/rank/rankListSlice';
+import wsReducer from '../features/websocket/websocketSlice'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    ws: wsReducer,
+    rankList: rankListReducer
   },
 });
