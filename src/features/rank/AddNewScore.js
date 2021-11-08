@@ -84,7 +84,9 @@ export function AddNewScore() {
         </Stack>
         </Collapse>
         <Collapse in={mode === 'gamer'}>
+        <Stack>
             <Button variant="outlined" color="warning" onClick={setAdminMode}>Admin Mode</Button>
+        </Stack>
         </Collapse>
         </Box>
     </Paper>
