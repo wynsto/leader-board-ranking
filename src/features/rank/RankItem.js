@@ -1,5 +1,7 @@
-import { WebSocketContext } from '../websocket/WebSocketProvider';
+
 import React, { useState, useContext } from 'react';
+import { useSelector } from 'react-redux';
+// UI Components 
 import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
@@ -8,9 +10,10 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import { blueGrey } from '@mui/material/colors';
 import TextField from '@mui/material/TextField';
-import { useSelector } from 'react-redux';
+
 import { selectRankList } from './rankListSlice';
-  
+import { WebSocketContext } from '../websocket/WebSocketProvider';
+
 
 export const ScoreEditor = (props) =>  <TextField id="outlined-basic" variant="standard"
         value={props.score} name="score" onChange={props.updateScore}

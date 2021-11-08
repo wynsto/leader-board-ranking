@@ -1,20 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  connected: false,
+  connected: false, // initial status of websocket it's disconnected
   message: ''
 }
 
 export const wsSlice = createSlice({
   name: 'ws',
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     connected: (state) => {
-      state.connected = true;
+      state.connected = true; // update state of the connection to be 'connected'
     },
     disconnected: (state) => {
-      state.connected = false;
+      state.connected = false; // update state of the connection to be 'disconnected'
     },
   }
 });

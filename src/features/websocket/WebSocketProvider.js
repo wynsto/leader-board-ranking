@@ -1,6 +1,7 @@
 import React, { createContext } from 'react'
-import { WS_BASE } from './config';
 import { useDispatch } from 'react-redux';
+
+import { WS_BASE } from './config';
 import {connected, disconnected} from './websocketSlice'
 import { updateList, updateDetail } from '../rank/rankListSlice'
 
@@ -8,6 +9,7 @@ const WebSocketContext = createContext(null);
 
 export { WebSocketContext }
 
+// WebSocket Context Provider, this provider wil wrap the root app component maintains all the operations (connect/disconnect, send message) with websocket backend. 
 const WebSocketProvider = ({ children }) => {
     let socket;
     let ws;
@@ -44,15 +46,19 @@ const WebSocketProvider = ({ children }) => {
             const data = JSON.parse(msg.data)
             const { action, payload } = data
             switch(action) {
+                // update the player score rank list
                 case 'updateList':
                     dispatch(updateList(payload));
                     break;
+                // update detail of single player
                 case 'updateDetail':
                     dispatch(updateDetail(payload));
                     break;
+                // websocket connected event
                 case 'connected':
                     dispatch(connected(payload));
                     break;
+                // websocket disconnected event
                 case 'disconnected':
                     dispatch(disconnected(payload));
                     break

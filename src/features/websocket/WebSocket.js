@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
-
 import { useSelector } from "react-redux";
-import { selectWS } from "./websocketSlice";
+// UI Components 
 import Button from '@mui/material/Button';
-import { WebSocketContext } from './WebSocketProvider';
 import { Alert, AlertTitle, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-
 import Collapse from '@mui/material/Collapse';
+
+import { selectWS } from "./websocketSlice";
+import { WebSocketContext } from './WebSocketProvider';
 
 // webscocket connected status child component 
 const Connceted = (props) => {
@@ -33,7 +33,6 @@ const Connceted = (props) => {
             </IconButton> */}
             </>
         }
-        onClose={() => {}}
     >
         <AlertTitle>WebSocket Connected</AlertTitle>
         
