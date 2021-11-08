@@ -1,4 +1,4 @@
-# This is a demo app for real-time leader board ranking.
+# Real-time Game Player Leader Board
 
 ## How to start
 To start the development client/server, in the project directory, install the dependency by `npm install` then you can run `npm run dev`. This command will start web client and websocket server at the sametime. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
