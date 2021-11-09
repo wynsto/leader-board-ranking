@@ -28,6 +28,7 @@ export const RankItem = (props) => {
 
     const username = props.username;
     const id = props.id;
+    const rank = `#${props.index + 1}`
     const score = props.score;
 
     const [newScore, setNewScore] = useState(props.score);
@@ -70,7 +71,8 @@ export const RankItem = (props) => {
                 </Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                    primary={username} 
+                    primary={username}
+                    secondary={rank}
                     >    
                 </ListItemText>
                 {ScoreElem}

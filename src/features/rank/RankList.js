@@ -17,8 +17,8 @@ export function RankList() {
         <Grid item xs={6} md={8}>
             <Paper>
             <List>
-                {list.map(item => 
-                    <RankItem username={item.username} key={item.id} id={item.id} score={item.score}/>
+                {list.map((item, index) => 
+                    <RankItem username={item.username} key={item.id} id={item.id} index={index} score={item.score}/>
                 )}
             </List>
             </Paper>
